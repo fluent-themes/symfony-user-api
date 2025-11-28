@@ -1,6 +1,6 @@
-# UserAPI - RESTful Service
+# Symfony UserAPI - RESTful Service
 
-A minimal REST API demonstrating Symfony's attribute routing, dependency injection, and Doctrine ORM with SQLite. Built for WordPress developers learning modern PHP frameworks.
+A minimal REST API showcasing Symfony features such as attribute routing, dependency injection, and Doctrine ORM with SQLite. Designed for WordPress developers exploring modern PHP frameworks, it introduces basic Symfony concepts and helps users understand the key similarities and differences between WordPress and Symfony workflows.
 
 ## Features
 
@@ -14,7 +14,7 @@ A minimal REST API demonstrating Symfony's attribute routing, dependency injecti
 
 ---
 
-## Part 1: Installing Prerequisites (The "WordPress" Layer)
+## Part 1: Installing Prerequisites
 
 Before setting up this project, you need PHP, Composer, and optionally the Symfony CLI.
 
@@ -103,7 +103,7 @@ symfony -v      # Optional
 
 ## Part 2: Setting Up UserAPI (The "Plugin" Layer)
 
-Unlike SimpleBlog, Symfony projects are created using Composer or the Symfony CLI. We'll create a fresh Symfony project, then add our custom files.
+Symfony projects are created using Composer or the Symfony CLI. We'll create a fresh Symfony project with default files, then add our custom files.
 
 ### Step 1: Create a New Symfony Project
 
@@ -129,7 +129,7 @@ Wait 2-5 minutes for installation.
 cd userapi-symfony
 ```
 
-You should see folders like `bin/`, `config/`, `src/`, `public/`, etc.
+You should see default folders like `bin/`, `config/`, `src/`, `public/`, etc.
 
 ### Step 3: Install Doctrine ORM
 
@@ -149,9 +149,9 @@ Open the `.env` file in a text editor. Find the `DATABASE_URL` line and modify i
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 ```
 
-### Step 5: Add Project Files
+### Step 5: Add the Downloaded Project Files
 
-Create the necessary folders (if they don't exist):
+Download the files from this repo to your Computer. Then, create the necessary folders (if they don't exist):
 
 Windows:
 ```
@@ -165,7 +165,7 @@ Mac/Linux:
 mkdir -p src/Entity src/Repository src/Controller
 ```
 
-Copy the project files:
+Copy the downloaded project files:
 - `User.php` → `src/Entity/User.php`
 - `UserRepository.php` → `src/Repository/UserRepository.php`
 - `UserController.php` → `src/Controller/UserController.php`
@@ -190,16 +190,16 @@ You should see success messages like "Created database" and "Executing 1 query".
 ```bash
 symfony serve
 ```
-Opens at https://127.0.0.1:8000
+Opens at 127.0.0.1:8000
 
 **Option B - Using PHP built-in server:**
 ```bash
 php -S localhost:8000 -t public
 ```
-Opens at http://localhost:8000
+Opens at localhost:8000
 
 **Test the API:**
-Open browser: http://localhost:8000/api/users
+Open browser: localhost:8000/api/users
 
 You should see: `[]` (empty array, no users yet)
 
@@ -213,8 +213,8 @@ GET /api/users
 
 Response 200:
 [
-  {"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2024-01-15 10:30:00"},
-  {"id": 2, "name": "Jane Smith", "email": "jane@example.com", "createdAt": "2024-01-15 11:00:00"}
+  {"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2025-02-22 10:30:00"},
+  {"id": 2, "name": "Janifer", "email": "jane@example.com", "createdAt": "2025-02-22 11:00:00"}
 ]
 ```
 
@@ -223,7 +223,7 @@ Response 200:
 GET /api/users/1
 
 Response 200:
-{"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2024-01-15 10:30:00"}
+{"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2025-02-22 10:30:00"}
 
 Response 404 (not found):
 {"error": "User not found"}
@@ -237,7 +237,7 @@ Content-Type: application/json
 {"name": "John Doe", "email": "john@example.com"}
 
 Response 201:
-{"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2024-01-15 10:30:00"}
+{"id": 1, "name": "John Doe", "email": "john@example.com", "createdAt": "2025-02-22 10:30:00"}
 
 Response 400 (validation error):
 {"error": "Name and email are required"}
@@ -251,7 +251,7 @@ Content-Type: application/json
 {"name": "John Updated", "email": "john.new@example.com"}
 
 Response 200:
-{"id": 1, "name": "John Updated", "email": "john.new@example.com", "createdAt": "2024-01-15 10:30:00"}
+{"id": 1, "name": "John Updated", "email": "john.new@example.com", "createdAt": "2025-02-22 10:30:00"}
 ```
 
 ### Delete User
@@ -276,7 +276,7 @@ A Postman collection is included: `userapi.postman_collection.json`
 
 ---
 
-## Project Structure
+## Your final Project Structure will be
 
 ```
 userapi-symfony/
@@ -347,7 +347,7 @@ php bin/console doctrine:schema:create
 
 ### Step 5: Test
 
-Visit: http://yourdomain.com/api/users
+Visit: yourdomain.com/api/users
 
 Should see: `[]`
 
@@ -365,17 +365,7 @@ Should see: `[]`
 
 ---
 
-## Screenshots
-
-Add these screenshots to a `/screenshots` folder:
-
-1. **screenshots/01-postman-list.png** - Postman showing GET /api/users with list of users
-2. **screenshots/02-postman-create.png** - Postman showing POST /api/users with JSON body and 201 response
-3. **screenshots/03-postman-delete.png** - Postman showing DELETE /api/users/1 with 204 response
-
----
-
-## Lessons Learned
+## Key Lessons
 
 Symfony fundamentally differs from WordPress in architecture:
 
